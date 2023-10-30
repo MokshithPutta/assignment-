@@ -59,17 +59,17 @@ export default function HomePage() {
     }
   }
 
-  const deposit = async() => {
+  const array_sum = async() => {
     if (atm) {
-      let tx = await atm.deposit(1);
+      let tx = await atm.array_sum([2,3,5,7]);
       await tx.wait()
       getBalance();
     }
   }
 
-  const withdraw = async() => {
+  const array_product = async() => {
     if (atm) {
-      let tx = await atm.withdraw(1);
+      let tx = await atm.array_product([2,5,7,9]);
       await tx.wait()
       getBalance();
     }
@@ -94,8 +94,8 @@ export default function HomePage() {
       <div>
         <p>Your Account: {account}</p>
         <p>Your Balance: {balance}</p>
-        <button onClick={deposit}>Deposit 1 ETH</button>
-        <button onClick={withdraw}>Withdraw 1 ETH</button>
+        <button onClick={array_sum}>Sum of elements inside the array</button>
+        <button onClick={array_product}>Product of elements insdie the array</button>
       </div>
     )
   }
@@ -104,11 +104,12 @@ export default function HomePage() {
 
   return (
     <main className="container">
-      <header><h1>Welcome to the Metacrafters ATM!</h1></header>
+      <header><h1>Product and Sum of an array</h1></header>
       {initUser()}
       <style jsx>{`
         .container {
-          text-align: center
+          text-align: center;
+
         }
       `}
       </style>
